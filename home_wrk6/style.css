@@ -1,0 +1,41 @@
+body {
+  font-family: Arial;
+}
+
+header, footer {
+  background: #ddd;
+  padding: 10px;
+}
+
+nav a {
+  margin-right: 10px;
+}
+
+.gallery {
+  display: flex;
+  gap: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+tr:nth-child(even) {
+  background: #eee;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    flex-direction: column;
+  }
+
+  body {
+    background: #ccc;
+  }
+}

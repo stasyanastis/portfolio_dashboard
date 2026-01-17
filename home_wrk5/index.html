@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Форма реєстрації</h1>
+
+<form class="register-form">
+    <label>
+        Ім’я:
+        <input type="text" name="name" required>
+    </label>
+
+    <label>
+        Email:
+        <input type="email" name="email" required>
+    </label>
+
+    <label>
+        Пароль:
+        <input type="password" name="password" required>
+    </label>
+
+    <label>
+        Підтвердження пароля:
+        <input type="password" name="confirm_password" required>
+    </label>
+
+    <label>
+        Вік:
+        <input type="number" name="age" min="1">
+    </label>
+
+    <p>Стать:</p>
+    <label>
+        <input type="radio" name="gender" value="male">
+        Чоловік
+    </label>
+    <label>
+        <input type="radio" name="gender" value="female">
+        Жінка
+    </label>
+
+    <label class="checkbox">
+        <input type="checkbox" required>
+        Приймаю умови
+    </label>
+
+    <button type="submit">Зареєструватися</button>
+</form>
+
+<hr>
+
+<h2>Таблиця користувачів (приклад)</h2>
+
+<table>
+    <tr>
+        <th>Ім’я</th>
+        <th>Email</th>
+        <th>Вік</th>
+    </tr>
+    <tr>
+        <td>Анна</td>
+        <td>anna@gmail.com</td>
+        <td>18</td>
+    </tr>
+    <tr>
+        <td>Олег</td>
+        <td>oleg@gmail.com</td>
+        <td>20</td>
+    </tr>
+</table>
+
+<h2>Переваги реєстрації</h2>
+
+<ul>
+    <li>Доступ до контенту</li>
+    <li>Персональний профіль</li>
+    <li>Збереження даних</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Скидання базових відступів */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Загальні стилі */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #0f0f0f;
+    color: #eaeaea;
+}
+
+/* Flex-контейнер */
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Ліва колонка (меню) */
+.menu {
+    width: 260px;
+    background-color: #161616;
+    padding: 30px;
+    border-right: 1px solid #2a2a2a;
+}
+
+.menu h2 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu li {
+    margin-bottom: 15px;
+}
+
+.menu a {
+    color: #bdbdbd;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: #ffffff;
+}
+
+/* Права колонка (контент) */
+.content {
+    flex: 1;
+    padding: 60px;
+}
+
+.content h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #cfcfcf;
+}
+
+/* 🔹 Адаптивність */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #2a2a2a;
+    }
+
+    .content {
+        padding: 30px;
+    }
+}

@@ -1,0 +1,197 @@
+/* ========== БАЗОВІ СТИЛІ ========== */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #1a0a2a;
+  color: #fff;
+}
+
+/* ========== ХЕДЕР ========== */
+header.header {
+  position: relative;
+  height: 70vh;
+  background: url('background.jpg') center/cover no-repeat; /* <- сюди вставляєш свою фотку */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .overlay {
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: linear-gradient(rgba(100,0,150,0.6), rgba(50,0,100,0.6));
+}
+
+header .header-content {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 3em;
+  margin: 0.2em 0;
+}
+
+header p {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.btn {
+  background: #b14fff;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #7a1fff;
+}
+
+/* ========== ЖИВІ ЕМОДЗІ ========== */
+.emojis {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 2em;
+  animation: float 5s infinite alternate;
+}
+
+.emoji {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+/* Анімація плаваючих ягід */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg);}
+  50% { transform: translateY(-20px) rotate(15deg);}
+  100% { transform: translateY(0) rotate(-15deg);}
+}
+
+/* ========== СЕКЦІЇ ========== */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+h2.center {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #dda0ff;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: rgba(50,0,100,0.6);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(180,0,255,0.7);
+}
+
+/* ========== КУРСИ ========== */
+.course-list {
+  list-style: none;
+  padding: 0;
+}
+
+.course-list li {
+  margin: 10px 0;
+}
+
+.course-list a {
+  color: #dda0ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.course-list a:hover {
+  color: #b14fff;
+}
+
+/* ========== КОНТАКТИ ========== */
+.contact table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  color: #000;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact th, .contact td {
+  padding: 15px;
+  text-align: left;
+}
+
+.contact tr:nth-child(even) {
+  background: #f4e1ff;
+}
+
+/* ========== ФУТЕР ========== */
+footer.footer {
+  text-align: center;
+  padding: 20px;
+  background: #111;
+}
+
+footer a {
+  color: #b14fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  color: #dda0ff;
+}
+
+/* ========== АДАПТИВНІСТЬ ========== */
+@media (max-width: 600px) {
+  header h1 { font-size: 2em; }
+  header p { font-size: 1em; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .emojis { font-size: 1.5em; }
+}
+
+/* ========== МИШКА-ЕМОДЗІ ПОНЧИК 🍩 І СЛІД БЛИСКІТОК ========== */
+.cursor-emoji {
+  position: fixed;
+  font-size: 2em; /* розмір пончика */
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #ffb6ff, #b14fff); /* фіолетові блискітки */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 1;
+  animation: sparkle-fade 1s forwards;
+}
+
+@keyframes sparkle-fade {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.5); }
+}
