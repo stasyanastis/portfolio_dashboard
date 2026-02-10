@@ -11,16 +11,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.5s, color 0.5s;
-            background-color: #ffe4f0; 
-            color: #4a0033; 
+            transition: background-color 0.5s, color 0.5s, background-image 0.5s;
+            
+            background-color: #ffe4f0;
+            color: #4a0033;
+
+            background-image: url("photo.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .container {
             text-align: center;
             padding: 30px 40px;
             border-radius: 20px;
-            background-color: #ffccd9; 
+            background-color: #ffccd9;
             color: inherit;
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             transition: background-color 0.5s, color 0.5s;
@@ -41,19 +47,22 @@
             background-color: #ff4c9e;
         }
 
-        .dark-theme body {
-            background-color: #4a0033; 
-            color: #ffe4f0; 
+        .dark-theme {
+            background-color: #4a0033;
+            color: #ffe4f0;
+
+            background-image: url("photo1.jpg"); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         .dark-theme .container {
-            background-color: #800040; 
-            color: inherit;
+            background-color: #800040;
         }
 
         .dark-theme button {
             background-color: #ff4c9e;
-            color: #fff;
         }
 
         .dark-theme button:hover {
@@ -61,7 +70,8 @@
         }
     </style>
 </head>
-<body id="page">
+<body>
+
 <div class="container">
     <h1>Перемикач теми</h1>
     <button onclick="toggleTheme()">Змінити тему</button>
@@ -75,5 +85,6 @@ function toggleTheme() {
 
 </body>
 </html>
+
 
 
