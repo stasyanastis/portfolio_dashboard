@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Таблиця множення</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7f1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .table-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #a8e6cf;
+            padding: 10px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #b2f7ef; 
+        }
+
+        td {
+            background-color: #dffcf0; 
+        }
+
+        td.odd {
+            background-color: #c7f0e7; 
+            font-weight: bold;
+            color: #2a7f67;
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-container">
+    <h1>Таблиця множення 1–10</h1>
+    <table id="multiplication-table"></table>
+</div>
+
+<script>
+
+let table = document.getElementById("multiplication-table");
+
+for (let i = 1; i <= 10; i++) {
+    let row = document.createElement("tr"); 
+    for (let j = 1; j <= 10; j++) {
+        let cell = document.createElement("td"); 
+        let product = i * j;
+        cell.textContent = product;
+
+        
+        if (product % 2 !== 0) {
+            cell.classList.add("odd");
+        }
+
+        row.appendChild(cell);
+    }
+    table.appendChild(row); 
+}
+</script>
+
+</body>
+</html>

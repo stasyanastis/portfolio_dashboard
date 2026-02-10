@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Бюджет</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .budget-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .positive {
+            color: green;
+            font-weight: bold;
+        }
+
+        .zero {
+            color: orange;
+            font-weight: bold;
+        }
+
+        .negative {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="budget-container">
+    <h1>Розрахунок бюджету</h1>
+    <div id="output"></div>
+</div>
+
+<script>
+// Дані (можеш змінити)
+let income = 20000;
+let rent = 8000;
+let food = 5000;
+let transport = 1500;
+let entertainment = 2000;
+
+// Розрахунки
+let totalExpenses = rent + food + transport + entertainment;
+let savings = income - totalExpenses;
+
+// Вивід на сторінку
+let outputDiv = document.getElementById("output");
+
+let messageClass = savings > 0 ? "positive" :
+                   savings == 0 ? "zero" : "negative";
+
+let messageText = savings > 0 ? "У вас залишилися гроші" :
+                  savings == 0 ? "Ви витратили все" : "Ви в мінусі!";
+
+outputDiv.innerHTML = `
+<p>Загальні витрати: <strong>${totalExpenses} ₴</strong></p>
+<p>Залишок грошей: <strong>${savings} ₴</strong></p>
+<p class="${messageClass}">${messageText}</p>
+`;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Перемикач теми з фоном</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #ffe4f0; 
+            color: #4a0033; 
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px 40px;
+            border-radius: 20px;
+            background-color: #ffccd9; 
+            color: inherit;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #ff99c8;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff4c9e;
+        }
+
+        .dark-theme body {
+            background-color: #4a0033; 
+            color: #ffe4f0; 
+        }
+
+        .dark-theme .container {
+            background-color: #800040; 
+            color: inherit;
+        }
+
+        .dark-theme button {
+            background-color: #ff4c9e;
+            color: #fff;
+        }
+
+        .dark-theme button:hover {
+            background-color: #ff99c8;
+        }
+    </style>
+</head>
+<body id="page">
+<div class="container">
+    <h1>Перемикач теми</h1>
+    <button onclick="toggleTheme()">Змінити тему</button>
+</div>
+
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark-theme");
+}
+</script>
+
+</body>
+</html>
+
+

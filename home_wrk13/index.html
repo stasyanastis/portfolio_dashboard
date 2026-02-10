@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Нотатки</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5a9f2, #f2c1f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .notes-container {
+            background-color: #fff;
+            border-radius: 25px;
+            padding: 30px 40px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ff33cc;
+        }
+
+        input[type="text"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid #ff99ee;
+            width: 70%;
+            margin-right: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #ff33cc;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        #add-btn {
+            background-color: #ff33cc;
+            color: #fff;
+        }
+
+        #add-btn:hover {
+            background-color: #ff66dd;
+        }
+
+        #clear-btn {
+            background-color: #ff99ee;
+            color: #4a0033;
+            margin-top: 15px;
+        }
+
+        #clear-btn:hover {
+            background-color: #ff66dd;
+            color: #fff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #ffe6f0;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 15px;
+            text-align: left;
+            font-size: 16px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="notes-container">
+    <h1>Мої нотатки</h1>
+    <input type="text" id="note-input" placeholder="Введіть нотатку">
+    <button id="add-btn">Додати нотатку</button>
+    <ul id="notes-list"></ul>
+    <button id="clear-btn">Видалити всі нотатки</button>
+</div>
+
+<script>
+let notes = [];
+
+if(localStorage.getItem("notes")) {
+    notes = JSON.parse(localStorage.getItem("notes"));
+    renderNotes();
+}
+
+document.getElementById("add-btn").addEventListener("click", () => {
+    const input = document.getElementById("note-input");
+    const note = input.value.trim();
+    if(note === "") return;
+    notes.push(note);
+    localStorage.setItem("notes", JSON.stringify(notes));
+    input.value = "";
+    renderNotes();
+});
+
+document.getElementById("clear-btn").addEventListener("click", () => {
+    notes = [];
+    localStorage.removeItem("notes");
+    renderNotes();
+});
+
+function renderNotes() {
+    const ul = document.getElementById("notes-list");
+    ul.innerHTML = "";
+    notes.forEach((note) => {
+        const li = document.createElement("li");
+        li.textContent = note;
+        ul.appendChild(li);
+    });
+}
+</script>
+
+</body>
+</html>

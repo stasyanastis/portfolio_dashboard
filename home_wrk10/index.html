@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Список студентів</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f0e1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #8b5e3c; 
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            color: #fff8f0;
+            max-width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ffde9e; 
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #ffd699;
+        }
+
+        .average {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Список студентів</h1>
+    <ul id="student-list"></ul>
+    <p class="highlight" id="top-student"></p>
+    <p class="average" id="average-grade"></p>
+</div>
+
+<script>
+
+let students = [
+    {name: "Іван", age: 20, grade: 95},
+    {name: "Оля", age: 19, grade: 88},
+    {name: "Максим", age: 21, grade: 76}
+];
+
+let studentList = document.getElementById("student-list");
+students.forEach(student => {
+    let li = document.createElement("li");
+    li.textContent = `${student.name} (${student.age} років) - ${student.grade}`;
+    studentList.appendChild(li);
+});
+
+let topStudent = students.reduce((prev, current) => (prev.grade > current.grade) ? prev : current);
+document.getElementById("top-student").textContent = `Найвища оцінка: ${topStudent.name} (${topStudent.grade})`;
+
+let total = students.reduce((sum, student) => sum + student.grade, 0);
+let average = (total / students.length).toFixed(1);
+document.getElementById("average-grade").textContent = `Середній бал: ${average}`;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <style>
+        body {
+            background-color: #1c1c1c; 
+            color: #ff4c4c; 
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-container {
+            background-color: #2c0000; 
+            padding: 30px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ff1a1a;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff1a1a;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <h1>Червоний калькулятор</h1>
+    <button onclick="calculator()">Запустити калькулятор</button>
+</div>
+
+<script>
+function calculator() {
+    while (true) {
+        
+        let num1 = prompt("Введіть перше число:");
+        if (num1 === null) break; 
+        num1 = parseFloat(num1);
+
+        let num2 = prompt("Введіть друге число:");
+        if (num2 === null) break;
+        num2 = parseFloat(num2);
+
+        let operation = prompt("Виберіть операцію (+, -, *, /):");
+        if (operation === null) break;
+
+        let result;
+
+        switch(operation) {
+            case '+':
+                result = num1 + num2;
+                break;
+            case '-':
+                result = num1 - num2;
+                break;
+            case '*':
+                result = num1 * num2;
+                break;
+            case '/':
+                if (num2 === 0) {
+                    alert("Помилка! Ділення на нуль неможливе.");
+                    continue; 
+                }
+                result = num1 / num2;
+                break;
+            default:
+                alert("Невідома операція!");
+                continue; 
+        }
+
+        alert(`Результат: ${result}`);
+    }
+}
+</script>
+
+</body>
+</html>
